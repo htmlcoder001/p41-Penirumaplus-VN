@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="vn">
+<head>
+  <meta charset="UTF-8">
+  <title>Men`s Club</title>
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <style>
+    .platePrice_text {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    display: block;
+    margin: 0 auto 5px !important
+  }
+  
+  .platePrice_price._old {
+    text-decoration: line-through;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1
+  }
+  
+  .platePrice_price {
+    display: block;
+    text-align: center
+  }
+  
+  .platePrice_price._new {
+    color: red;
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 700;
+    border-bottom: 2px solid red;
+    line-height: 1
+  }
+  
+  input {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 20px;
+    border: 1px dashed #229b87
+  }
+  
+  .form form .prices {
+    width: 100%;
+    text-align: center;
+    font-size: 0;
+    margin: 15px 0
+  }
+  
+  .form form .prices .new {
+    font-family: inter, sans-serif;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 30px;
+    text-transform: uppercase;
+    margin: 5px;
+    color: #c10101;
+    font-weight: 700
+  }
+  
+  .form form .prices .old {
+    font-family: inter, sans-serif;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 20px;
+    color: #b2b2b2;
+    margin: 5px
+  }
+  
+  @media all and (max-width: 600px) {
+    .form {
+      width: 100%;
+      flex-direction: column;
+      padding: 20px 0 60px
+    }
+  }
+  
+  @media all and (max-width: 400px) {
+    .form form input, .form form button {
+      width: 100%
+    }
+  }
+  
+  .block-prod {
+    border: 2px dashed #229b87;
+    border-radius: 8px;
+    width: 80%;
+    margin: 0 auto;
+    max-width: 400px;
+    padding: 10px 10px 30px;
+    -webkit-box-shadow: 0 0 11px 1px #696161;
+    box-shadow: 0 0 11px 1px #696161;
+    text-align: center
+  }
+  
+  @media (max-width: 420px) {
+    .block-prod h3 {
+      font-size: 18px
+    }
+    
+    .block-prod {
+      max-width: 355px
+    }
+  }
+  
+  @media (max-width: 375px) {
+    .block-prod {
+      max-width: 320px
+    }
+  }
+  
+  @media (max-width: 340px) {
+    .block-prod h3 {
+      font-size: 16px
+    }
+    
+    .block-prod {
+      max-width: 300px
+    }
+  }
+  
+  .block-prod h3 {
+    font-size: 18px;
+    padding: 0;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px
+  }
+  
+  .product {
+    position: relative
+  }
+  
+  p.prod_p {
+    text-align: center;
+    font-size: 15px
+  }
+  
+  .prod {
+    max-width: 280px;
+    margin: 0 auto;
+    display: block
+  }
+  
+  .platePrice {
+    position: absolute;
+    width: 100%;
+    max-width: 140px;
+    left: 25%;
+    top: 5%;
+    padding: 5px 5px 15px;
+    border: 3px solid #fff;
+    border-radius: 15px;
+    background: #ea982e;
+    background: -moz-linear-gradient(left, #ea982e 0, #fce43d 100%);
+    background: -webkit-linear-gradient(left, #ea982e 0, #fce43d 100%);
+    background: linear-gradient(to right, #ea982e 0, #fce43d 100%);
+    -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, .75);
+    -moz-box-shadow: 0 0 15px 0 rgba(0, 0, 0, .75);
+    box-shadow: 0 0 15px rgba(0, 0, 0, .75);
+    -webkit-transform: rotate(-15deg) translate(-50%, -50%);
+    -moz-transform: rotate(-15deg) translate(-50%, -50%);
+    -ms-transform: rotate(-15deg) translate(-50%, -50%);
+    -o-transform: rotate(-15deg) translate(-50%, -50%);
+    transform: rotate(-15deg) translate(-50%, -50%)
+  }
+  
+  .submit-form {
+    position: relative;
+    animation: 1s pulse infinite alternate ease-in-out;
+    width: 100%;
+    height: 47px;
+    background: #ff2828;
+    font-size: 25px;
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    line-height: 45px;
+    text-align: center;
+    text-decoration: none;
+    margin: auto
+  }
+  
+  .submit-form-2 {
+    position: relative;
+    animation: 1s pulse infinite alternate ease-in-out;
+    max-width: 340px;
+    height: 47px;
+    background: #ff2828;
+    font-size: 25px;
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    line-height: 45px;
+    text-align: center;
+    text-decoration: none;
+    margin: auto
+  }
+  
+  form .submit-form:after {
+    display: inline-block;
+    -webkit-animation: dotty steps(1, end) 1.5s infinite;
+    animation: dotty steps(1, end) 1.5s infinite;
+    content: "";
+    position: absolute;
+    margin-left: 5px;
+    font-family: inherit;
+    font-size: 20px;
+    vertical-align: middle;
+    top: 52%;
+    transform: translateY(-50%)
+  }
+  
+  b {
+    text-align: justify
+  }
+  
+  .fixed {
+    position: fixed;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    max-width: 510px;
+    width: 95% !important
+  }
+  
+  i {
+    font-size: 24px
+  }
+  
+  img {
+    max-width: 475px !important;
+    width: 100%
+  }
+  
+  .promo__stat-list {
+    margin: 20px 0
+  }
+  
+  html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%
+  }
+  
+  body {
+    margin: 0
+  }
+  
+  main {
+    display: block
+  }
+  
+  a {
+    background-color: initial
+  }
+  
+  img {
+    border-style: none
+  }
+  
+  input {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+    overflow: visible
+  }
+  
+  ::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    font: inherit
+  }
+  
+  html {
+    box-sizing: border-box;
+    font-size: 16px
+  }
+  
+  *, ::before, ::after {
+    box-sizing: inherit
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit
+  }
+  
+  body, h2, p, li {
+    margin: 0
+  }
+  
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0
+  }
+  
+  input {
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit
+  }
+  
+  img {
+    display: block;
+    max-width: 100%
+  }
+  
+  body {
+    min-width: 320px;
+    width: 100%;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    font-family: roboto, sans-serif;
+    font-weight: 500;
+    color: #000;
+    background: #fff
+  }
+  
+  .wrapper {
+    max-width: 1020px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px
+  }
+  
+  @media (max-width: 991px) {
+    .wrapper {
+      max-width: 480px
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .wrapper {
+      padding: 0 10px
+    }
+  }
+  
+  .btn {
+    background: #ff1e1e;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 33px;
+    text-align: center;
+    color: #fff;
+    display: block;
+    padding: 15px 10px;
+    cursor: pointer;
+    transition: all .1s;
+    margin: 0 auto;
+    max-width: 400px;
+    width: 100%;
+    z-index: 1000
+  }
+  
+  .article__btn {
+    position: absolute !important;
+    left: 0;
+    right: 0
+  }
+  
+  @media (max-width: 991px) {
+    .btn {
+      font-size: 22px;
+      line-height: 28px
+    }
+  }
+  
+  .btn:hover {
+    transform: scale(1.05)
+  }
+  
+  @media (max-width: 991px) {
+    .header .wrapper {
+      max-width: none
+    }
+  }
+  
+  .fixed {
+    position: fixed;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    max-width: 600px;
+    width: 95% !important
+  }
+  
+  b {
+    text-align: center
+  }
+  
+  i {
+    font-size: 24px
+  }
+  
+  img {
+    max-width: 475px !important;
+    width: 100%
+  }
+  
+  .promo__stat-list {
+    margin: 20px 0
+  }
+  
+  html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%
+  }
+  
+  body {
+    margin: 0
+  }
+  
+  main {
+    display: block
+  }
+  
+  a {
+    background-color: initial
+  }
+  
+  img {
+    border-style: none
+  }
+  
+  input {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+    overflow: visible
+  }
+  
+  ::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    font: inherit
+  }
+  
+  html {
+    box-sizing: border-box;
+    font-size: 16px
+  }
+  
+  *, ::before, ::after {
+    box-sizing: inherit
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit
+  }
+  
+  body, h2, p, li {
+    margin: 0
+  }
+  
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0
+  }
+  
+  input {
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit
+  }
+  
+  img {
+    display: block;
+    max-width: 100%
+  }
+  
+  body {
+    min-width: 320px;
+    width: 100%;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    font-family: roboto, sans-serif;
+    font-weight: 500;
+    color: #000;
+    background: #fff
+  }
+  
+  .wrapper {
+    max-width: 1020px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px
+  }
+  
+  @media (max-width: 991px) {
+    .wrapper {
+      max-width: 480px
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .wrapper {
+      padding: 0 10px
+    }
+  }
+  
+  .content {
+    width: 100%;
+    position: relative
+  }
+  
+  .btn {
+    background: #ff1e1e;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 0;
+    text-align: center;
+    color: #fff;
+    display: block;
+    padding: 30px 6px;
+    cursor: pointer;
+    transition: all .1s;
+    margin: 0 auto;
+    max-width: 635px;
+    width: 100%;
+    z-index: 1000
+  }
+  
+  .article__btn {
+  }
+  
+  .btn:hover {
+    transform: scale(1.05)
+  }
+  
+  @media (max-width: 991px) {
+    .article__btn {
+      padding: 10px;
+      line-height: 28px
+    }
+    
+    .header .wrapper {
+      max-width: none
+    }
+  }
+  
+  .header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 110px
+  }
+  
+  @media (max-width: 767px) {
+    .header__inner {
+      min-height: auto
+    }
+  }
+  
+  .header__logo {
+    display: block;
+    max-width: 240px;
+    margin-right: 15px
+  }
+  
+  .header__menu {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    cursor: pointer
+  }
+  
+  .header__menu-btn {
+    width: 40px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    height: 50px;
+    margin-right: 5px
+  }
+  
+  @media (max-width: 991px) {
+    .header__menu-btn {
+      width: 35px;
+      margin-right: 25px
+    }
+  }
+  
+  .header__menu-btn span {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #000
+  }
+  
+  .header__menu-btn span::before, .header__menu-btn span::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 3px;
+    background: #000
+  }
+  
+  .header__menu-btn span::before {
+    top: 10px;
+    left: 0
+  }
+  
+  .header__menu-btn span::after {
+    bottom: 10px;
+    left: 0
+  }
+  
+  .header__menu-text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #141414
+  }
+  
+  @media (max-width: 991px) {
+    .header__menu-text {
+      font-size: 0
+    }
+  }
+  
+  .header__input-wp {
+    flex-grow: 1;
+    margin-right: 15px
+  }
+  
+  .header__input-wp input {
+    width: 100%;
+    border-radius: 50px;
+    border: none;
+    padding: 4px 15px 4px 45px
+  }
+  
+  @media (max-width: 991px) {
+    .header__input-wp input {
+      width: 32px;
+      height: 32px;
+      font-size: 0;
+      padding: 0
+    }
+  }
+  
+  .header__user {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #141414;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    cursor: pointer
+  }
+  
+  @media (max-width: 991px) {
+    .header__user {
+      font-size: 0
+    }
+  }
+  
+  .header__user span {
+    display: block;
+    width: 32px;
+    border-radius: 50%;
+    margin-right: 5px;
+    height: 32px
+  }
+  
+  p {
+    text-align: justify
+  }
+  
+  .promo .wrapper {
+    max-width: 810px
+  }
+  
+  .promo__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+  }
+  
+  .promo__title {
+    font-weight: 700;
+    font-size: 49px;
+    line-height: 65px;
+    text-align: center;
+    color: #000;
+    text-shadow: 1px 3px 7px rgba(5, 5, 5, .69);
+    background-position: 0 0;
+    -webkit-background-clip: text;
+    animation: background 5s infinite alternate;
+    margin-bottom: 20px
+  }
+  
+  @media (max-width: 767px) {
+    .promo__title {
+      line-height: 52px
+    }
+    
+    .promo__title .doc {
+      font-size: 32px
+    }
+  }
+  
+  @keyframes background {
+    100% {
+      background-position: 200px 0
+    }
+    50% {
+      background-position: 0 0
+    }
+    0% {
+      background-position: -200px 0
+    }
+  }
+  
+  .promo__stat-item {
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 42px;
+    color: #000;
+    display: inline-block;
+    margin-right: 25px
+  }
+  
+  @media (max-width: 991px) {
+    .promo__stat-item {
+      color: #000
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .promo__stat-item {
+      font-size: 14px;
+      line-height: 16px;
+      margin-right: 10px
+    }
+  }
+  
+  .promo__stat-item::before {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px
+  }
+  
+  .promo__stat-item:nth-child(1)::before {
+    c
+  }
+  
+  .promo__stat-item:nth-child(2)::before {
+  }
+  
+  .promo__stat-item:nth-child(3)::before {
+  }
+  
+  .article {
+    padding-bottom: 0
+  }
+  
+  .article .wrapper {
+    max-width: 810px
+  }
+  
+  .article img {
+    margin-bottom: 20px
+  }
+  
+  .article__inner > p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 32px;
+    color: #141414;
+    margin-bottom: 20px;
+    align-self: center
+  }
+  
+  @media (max-width: 767px) {
+    .article__inner > p {
+      font-size: 18px;
+      line-height: 28px;
+      margin-bottom: 5px
+    }
+  }
+  
+  .article__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+  }
+  
+  .article__screen {
+    position: relative
+  }
+  
+  .article__screen img {
+    max-width: 475px !important;
+    width: 100%
+  }
+  
+  .comments .wrapper {
+    max-width: 820px;
+    margin-bottom: 50px
+  }
+  
+  .comments__header {
+    padding: 5px 0;
+    background: #f1f1f1;
+    margin-bottom: 25px
+  }
+  
+  .comments__title {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 32px;
+    color: #7c7c7c;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 5px
+  }
+  
+  .comments__list {
+    display: flex;
+    flex-direction: column
+  }
+  
+  .card {
+    margin-bottom: 40px;
+    position: relative;
+    padding-left: 100px;
+    padding-bottom: 35px;
+    border-bottom: 1px solid #dadada
+  }
+  
+  @media (max-width: 767px) {
+    .card {
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      padding-left: 0
+    }
+  }
+  
+  @media (max-width: 991px) {
+    .card__header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px
+    }
+  }
+  
+  .card__ava {
+    position: absolute;
+    width: 48px !important;
+    height: 48px !important;
+    left: 0;
+    top: 0
+  }
+  
+  @media (max-width: 991px) {
+    .card__ava {
+      position: static;
+      margin-right: 15px
+    }
+  }
+  
+  .card__name {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 32px;
+    text-align: left
+  }
+  
+  .card__text {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    color: #141414;
+    text-align: left
+  }
+  
+  @media (max-width: 767px) {
+    .card__text {
+      font-size: 18px;
+      line-height: 20px
+    }
+  }
+  
+  .card__text span {
+    display: block;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 32px;
+    text-align: left
+  }
+  
+  a {
+    font-weight: 700
+  }
+  
+  img {
+    max-width: 100%
+  }
+  
+  body {
+    margin: 0;
+    padding: 0
+  }
+  
+  body * {
+    font-family: Arial, sans-serif
+  }
+  
+  a {
+    color: #ba0009
+  }
+  
+  a:hover {
+    text-decoration: none
+  }
+  
+  body img {
+    max-width: 100%
+  }
+  
+  .center {
+    text-align: center
+  }
+  
+  .comeback_layout {
+    display: none;
+    position: fixed;
+    color: #000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20000000;
+    background: rgba(0, 0, 0, .75);
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none
+  }
+  
+  .comeback_layout::-webkit-scrollbar {
+    width: 0
+  }
+  
+  .comeback_wrapper {
+    width: 100%;
+    max-width: 550px;
+    margin: 2% auto
+  }
+  
+  .comeback_container {
+    border-radius: 2%;
+    border: 4px dashed #000;
+    background: linear-gradient(to top, #d9d9d9, #fff);
+    padding: 5px 5px 25px;
+    text-align: center
+  }
+  
+  .comeback_container .btn {
+    display: block;
+    width: 95%;
+    color: #fff;
+    background: #c73030;
+    text-transform: uppercase;
+    padding: 10px 0;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    border-radius: 13px;
+    margin: 30px auto 0;
+    text-decoration: none !important
+  }
+  
+  .comeback_img {
+    width: 57%;
+    left: 15px;
+    margin: 10px auto
+  }
+  
+  @media (max-width: 700px) {
+    .comeback_img {
+      margin: 5px auto
+    }
+    
+    .comeback_container p {
+      line-height: 14px;
+      font-size: 15px
+    }
+  }
+  
+  .comeback_header {
+    margin-bottom: 25px
+  }
+  
+  .comeback_header p {
+    margin: 5px auto
+  }
+  
+  .comeback_body {
+    background: linear-gradient(to right, #000, #262424);
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around
+  }
+  
+  .comeback_body span {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: .9rem;
+    margin-right: .5rem;
+    margin-left: 1rem
+  }
+  
+  .comeback_body img {
+    position: relative;
+    filter: drop-shadow(0 0 1rem white)
+  }
+  
+  .comeback_footer p {
+    text-align: center
+  }
+  
+  .comeback_footer {
+    margin-bottom: 30px;
+    margin-top: 15px
+  }
+  
+  .comeback_footer::before {
+    content: "";
+    background-size: 150px 150px;
+    width: 150px;
+    height: 150px;
+    background-repeat: no-repeat;
+    margin-left: 150px;
+    margin-top: -20px;
+    position: absolute
+  }
+  
+  @media (max-width: 540px) {
+    .comeback_footer::before {
+      display: none
+    }
+  }
+  
+  @media (max-width: 430px) {
+    img {
+      max-width: 100%;
+      width: 100%
+    }
+    
+    .comeback_body span {
+      font-size: .8rem
+    }
+    
+    .comeback_footer p {
+      margin-right: 1em
+    }
+    
+    .comeback_container .btn {
+      font-size: 12px
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .promo__title {
+      font-size: 36px
+    }
+  }
+  
+  @media (max-width: 321px) {
+    .promo__title {
+      line-height: 43px
+    }
+    
+    .comeback_img {
+      width: 98%;
+      left: 15px;
+      margin: 10px auto
+    }
+    
+    .comeback_body span {
+      font-size: .7rem;
+      margin-left: 3rem
+    }
+    
+    .btn {
+      font-size: 18px
+    }
+    
+    .comeback_body img {
+      top: 0
+    }
+    
+    .comeback_footer p {
+      margin-right: 2em
+    }
+    
+    .comeback_container .btn {
+      width: 85%
+    }
+  }
+  
+  hr {
+    width: 100%;
+    border-top: 2.5px dotted #000;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 0;
+    margin-top: 3rem;
+    margin-bottom: 0
+  }
+  
+  hr:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 5.5rem;
+    height: 1rem;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    left: 50%;
+    margin: -.55rem 0 0 -2.6rem;
+    background-color: #fff
+  }
+  
+  .dr {
+    position: relative
+  }</style>
+  <link rel="shortcut icon" href="img/favicon.ico">
+</head>
+<body>
+<header class="header">
+  <div class="wrapper">
+    <div class="header__inner"><a class="header__logo"><img alt="" src="img/logo.svg"></a>
+      <div class="header__menu">
+        <div class="header__menu-btn"><span></span></div>
+        <span class="header__menu-text"></span></div>
+      <div class="header__input-wp"><input placeholder="ค้นหา" value=""></div>
+      <div class="header__user"><span></span>ลงชื่อเข้าระบบ</div>
+    </div>
+  </div>
+</header>
+<main class="main">
+  <section class="promo">
+    <div class="wrapper">
+      <div class="promo__inner">
+        <ul class="promo__stat-list">
+          <li class="promo__stat-item"><span class="date-0" data-format="dd mm yyyy"></span></li>
+          <li class="promo__stat-item">57.975</li>
+          <li class="promo__stat-item">33.847</li>
+        </ul>
+        <h3 style="font-size:27px;font-weight:300;text-shadow:1px 3px 7px rgba(5,5,5,.69);margin:0 0 20px">Ricardo
+          García</h3>
+        <hr style="margin:.5rem auto 2rem">
+        <img alt="" src="img/02.jpg" style="margin-bottom:20px">
+        <h2 class="promo__title">Làm thế nào để tăng kích thước cậu nhỏ thêm 14 cm ?</h2></div>
+    </div>
+  </section>
+  <section class="article">
+    <div class="wrapper">
+      <div class="article__inner"><p><b><i>Chào các anh em, thành thật mà nói thì nhiều anh em ở đây không ít lần
+        thấy mặc cảm về cậu nhỏ của mình có hơi khiêm tốc đúng không?</i></b></p><img alt="" src="img/0.jpg">
+        <p>Tôi cũng vậy à. Hẹn hò với nhiều em, vấn đề chung là các em đều chê hàng tôi. Tuy cũng không
+          nói thẳng ra đâu, nhưng mà nhìn cái thái đô dửng dưng của mấy em gái đó là hiểu ván đề.</p><img
+          alt="" src="img/01.jpg">
+        <b>Sinh ra đã vậy rồi còn làm gì được gì nữa. Nghỉ nhiều chỉ tổ mệt. Vì cũng có thay đổi được
+          đâu</b><br>
+        <p>Nhưng sau đó tôi vô tình đọc được cuốn sách có tên <b>"Penis Book"</b>
+          được viết bởi bác sĩ người Mỹ <b>Aaron Spitz</b>
+          , còn được gọi là bác sĩ nam khoa nổ tiếng số 1 nước Mỹ.</p><img alt="" src="img/book.jpg">
+        <p>Điểm mấu chốt của cuốn sách là nói về bí mật đằng sau lý do tại sao dương vật của các ngôi sao khiêu dâm nam
+          lại to đến vậy. Họ thực ra có "nghề" cả.</p>
+        <p>Tôi quyết định thử theo, vì cũng chả có gì để mất. Chym bé thì cũng chả bé hơn được. Thử
+          theo liệu trình đấy xem sao</p><img alt="" src="img/product.png">
+        <p><b><i>10 ngày sau khi đo lại hàng, tôi thực sự đã bị sốc!</i></b></p><br>
+        <p style="display:flex;justify-content:center;align-items:center"><img src="img/date.png"
+                                                                               style="width:20px;margin:0">
+          <b style="line-height:20px;margin-left:10px"><span class="date-40" data-format="dd mm yyyy"></span></b></p><img alt="" src="img/1.jpg"><br>
+        <p style="display:flex;justify-content:center;align-items:center"><img src="img/date.png"
+                                                                               style="width:20px;margin:0">
+          <b style="line-height:20px;margin-left:10px"><span class="date-36" data-format="dd mm yyyy"></span></b></p><img alt="" src="img/2.jpg"><br>
+        <p style="display:flex;justify-content:center;align-items:center"><img src="img/date.png"
+                                                                               style="width:20px;margin:0">
+          <b style="line-height:20px;margin-left:10px"><span class="date-32" data-format="dd mm yyyy"></span></b></p><img alt="" src="img/3.jpg"><br>
+        <p style="display:flex;justify-content:center;align-items:center"><img src="img/date.png"
+                                                                               style="width:20px;margin:0">
+          <b style="line-height:20px;margin-left:10px"><span class="date-27" data-format="dd mm yyyy"></span></b></p><img alt="" src="img/4.jpg">
+        <p><b><i>To như cái chai nước luôn!</i></b></p><img alt="" src="img/5.jpg">
+        <p><b><i>Trước đây, hàng tôi dài 11 cm. Bây giờ lên tận 20,5 cm.</i></b></p>
+        <p>Giờ thì các em phát cuồng với con cac này, kể cả khi tôi còn chưa tụt quần. Giờ thì thoải mái
+          show hàng cho tất cả các em gái tôi quen</p><img alt="" src="img/img7.jpg">
+        <img alt="" src="img/img8.jpg">
+        <img alt="" src="img/img9.jpg">
+        <p><b><i>Đúng là cac to thì em nào cũng tán dễ như điếu đổ. Vì một khi đã lên giường thì rên tới
+          khản cổ suốt đêm luôn</i></b></p><img alt="" src="img/img2.jpg">
+        <p>Sản phẩm hiện đã có mặt tại Việt Nam, thời gian giao hành nhanh chóng chỉ trong 2 ngày, chỉ
+          cần thanh toán khi nhận hàng</p>
+        <hr style="margin:1.5rem auto 1rem">
+        <p style="text-decoration:underline">Sau đây là những gì Aaron Spitz đã nói về Penirum A+:</p><br>
+        <h2 class="promo__title doc">Aaron Spitz là một nhà tình dục học.</h2><br>
+        <div class="dr"><img class="post-img" src="img/dr_2.jpg"></div>
+        <p>Với tư cách là một bác sĩ, tôi xin khẳng định <b>Penirum A+</b> sinh ra là dành cho những người đàn ông
+          có vấn đề về kích cỡ cũng như đã mất khoái quản khi quan hệ. Vì về mặt khoa mặt, phụ nữ đạt
+          cực khoái phụ thuộc vào việc kích thích điểm <b>G</b> và <b>A</b>.</p><img alt="" src="img/points.jpg">
+        <p>Trong âm đạo, điểm <b>G</b> nằm ở thành trên của âm đạo. Để kích thích điểm này, Đàn ông phải có dương vật
+          dày. Điểm chính là điểm A, sâu bên trong âm đạo. Và dương vật phải đủ dài để chạm tới nó. Thật không may, một
+          dương vật bé không thể đạt tới 2 điểm này. Vì vậy, phụ nữ không thể đạt được nhiều cực khoái. Dương vật lớn
+          hơn có thể dễ dàng kích thích âm vật hơn khi quan hệ. Điều này sẽ tăng cảm giác và cực khoái.</p><img alt=""
+                                                                                                                 src="img/31.jpg">
+        <p><b>Penirum A+</b> làm tăng kích thước dương vật trung bình từ <b>4-7 cm</b>. Cá nhân tôi đã thấy hiệu quả của
+          thuốc đối với bệnh nhân của mình. Vì vậy các bệnh nhân yên tâm và hài lòng hơn.</p><br>
+        <style>#muteButton {
+          padding: 10px 15px;
+          font-size: 16px;
+          border: none;
+          cursor: pointer;
+          border-radius: 5px;
+          transition: background-color .3s
+        }
+        
+        #muteButton.muted {
+          background-color: #4caf50;
+          color: #fff
+        }
+        
+        #muteButton.unmuted {
+          background-color: #f44336;
+          color: #fff
+        }</style>
+        <center><br>
+          <hr style="margin:1rem auto 2rem">
+          <p>Đừng trì hoãn, hãy nhanh tay đặt hàng. 1 là có hàng khủng, 2 là vô vọng tìm chiếc lỗ đủ nhỏ để
+            anh em mình không phải tự ti</p>
+          <p><b><i>Hiện tại đang có chương trình giảm giá 50% cho các đơn đặt hàng Penirum A+ đợt này. Bạn có
+            thể đặt hàng bằng cách điền thông tin vào biểu mẫu dưới đây.<br></i></b></p><img alt="" src="img/11.jpg">
+          <p><b><i>Penirum A+ hiện chỉ có sẵn trên trang web chính thức nayd. Vui lòng không mua hàng qua các kênh khác,
+            tránh nguy cơ mua phải hàng giả.</i></b></p>
+          <div id="to_form" class="block-prod"><h3>Điền thông tin cơ bản để sở hữu Penirum A+ ngay!
+            Với giá cực ưu đãi, CHỈ 590.000 Đ, giảm 50% từ GIÁ CŨ 1.180.000 Đ:</h3>
+            <div class="product"><img alt="prod" class="prod" src="img/product.png">
+              <div class="platePrice"><p class="platePrice_text">giảm giá
+                :</p><span class="platePrice_price _old"><span class="x_price_previous">1.180.000</span> <span
+                class="x_currency">Đ</span></span>
+                <span class="platePrice_price _new"><span class="x_price_current">590.000</span> <span
+                  class="x_currency">Đ</span></span></div>
+            </div>
+            <p></p>
+            <form id="buyForm" class="x_order_form buyForm form_0" action="https://eh.wrldtops.site/order"
+                  method="post"><input class="form-control input-form" name="name" placeholder="Tên" required=""
+                                       value="">
+              <span class="message0"></span><br><input class="form-control input-form" name="phone" placeholder="SĐT"
+                                                       type="tel" required="" minlength="5" maxlength="17" value="">
+              <span class="message1"></span><br><input type="hidden" name="form_id" value="transit">
+              <button id="orderSubmit" class="submit-form submitIndex_0">Đặt hàng</button>
+              <span class="errorMessage errorMessage_0"></span></form>
+          </div>
+          <br><br>
+          <p style="text-align:center;">Nếu bạn thấy bài viết của tôi hữu ích., xin hãy chia sẻ bài <br>viết với bạn bè hoặc lưu vào để không làm mất
+            nhé!</p>
+          <hr style="margin:1.5rem auto 1rem">
+          <br></center>
+      </div>
+    </div>
+  </section>
+  <section class="comments">
+    <div class="comments__header"><h2 class="comments__title">ความคิดเห็น</h2></div>
+    <div class="wrapper">
+      <ul class="comments__list">
+        <li class="comments__item card">
+          <div class="card__header"><img alt="" class="card__ava" src="img/avatar6.jpg">
+            <p class="card__name">Vũ Quỳnh Hương</p></div>
+          <p class="card__text">Xác nhận là chị em chúng tôi thường thích anh nào có hàng khủng nhé
+            <span class="date-1" data-format="dd mm yyyy"></span></p></li>
+        <li class="comments__item card">
+          <div class="card__header"><img alt="" class="card__ava" src="img/avatar1.jpg">
+            <p class="card__name">Trần Lan</p></div>
+          <p class="card__text">Đồng ý ! Hàng bé, nhiều khi quan hệ chả có cảm giác gì ấy
+            <span class="date-1" data-format="dd mm yyyy"></span></p></li>
+        <li class="comments__item card">
+          <div class="card__header"><img alt="" class="card__ava" src="img/avatar2.jpg">
+            <p class="card__name">Vũ Bùi</p></div>
+          <p class="card__text">Trước ở Mỹ cũng đã nghe qua về loại thuốc này. Từng mua dùng thử ở đó,
+            vẫn còn vỏ họp này. Giờ tiện quá, ở Việt Nam cũng đã có rồi.<br><br><a
+              href="#to_form"><img alt="" src="img/136.jpg"></a>
+            Dùng 1 tháng thôi là thấy khác liền<br><br><a href="#to_form"><img alt=""
+                                                                                                          src="img/138.jpg"></a>
+            <span class="date-2" data-format="dd mm yyyy"></span></p></li>
+        <li class="comments__item card">
+          <div class="card__header"><img alt="" class="card__ava" src="img/avatar11.jpg">
+            <p class="card__name">Trần Nam Anh</p></div>
+          <p class="card__text">Hàng to thì cầy em nào cũng sướng. Tôi cũng mới dùng được 2 tuần thôi mà
+            giờ lao lực vì phục vụ nhiều em quá keke<br><a href="#to_form"><img alt=""
+                                                                                                            src="img/139.jpg"></a>
+            <span class="date-2" data-format="dd mm yyyy"></span></p></li>
+        <li class="comments__item card">
+          <div class="card__header"><img alt="" class="card__ava" src="img/avatar5.jpg">
+            <p class="card__name">Nguyễn Bình An</p></div>
+          <p class="card__text">Sau khi thử dùng, thấy ham muốn quay trở lại, cảm thấy cu cậu cũng cứng hơn so
+            với bình thường, thực sự to hơn hẳn. Với giá này vậy là quá hời luôn.<br><a
+              href="#to_form"><img alt="" src="img/041_1000.jpg"></a>
+            <span class="date-3" data-format="dd mm yyyy"></span></p></li>
+        <li class="comments__item card">
+          <div class="card__header"><img alt="" class="card__ava" src="img/avatar4.jpg">
+            <p class="card__name">Nguyễn Gia Hưng</p></div>
+          <p class="card__text">Dùng vào chỉ thấy hối hận. Hối hận vì đã không biết đến Penirum A+ sớm hơn.
+            Biết sớm thì đã không phải tự tin suốt mấy chục năm giời như thế này.
+            <span class="date-4" data-format="dd mm yyyy"></span></p></li>
+        <li class="comments__item card">
+          <div class="card__header"><img alt="" class="card__ava" src="img/avatar3.jpg">
+            <p class="card__name">Khang Vũ</p></div>
+          <p class="card__text">Mới đọ hàng với tháng bạn, sợ thật nó to gần như gấp đôi mình. Nghe nói nó
+            dùng 4 lọ này rồi.<br><a href="#to_form"><img alt="" src="img/140.jpg"></a>
+            <span class="date-4" data-format="dd mm yyyy"></span></p></li>
+        <li class="comments__item card">
+          <div class="card__header"><img alt="" class="card__ava" src="img/avatar10.jpg">
+            <p class="card__name">Bùi Thị Liên</p></div>
+          <p class="card__text">Tuyệt vời! Tháng trước, tôi đã mua cho chồng làm quà tặng. Tuần đầu tiên, ông chồng
+            bảo là ấy nói là đã tốt rồi, không cần phải cải thiện gì cả. Sau đó, giờ thì đêm nào cũng đòi trả
+            bài vẻ. Hạnh phúc cần thiết biết bao nhiêu!
+            <span class="date-5" data-format="dd mm yyyy"></span></p></li>
+        <li class="comments__item card">
+          <div class="card__header"><img alt="" class="card__ava" src="img/avatar13.jpg">
+            <p class="card__name">Nguyên Ân</p></div>
+          <p class="card__text">Có hiệu quả thật không vật? Làm cho dài và to hơn thật á? Muốn thử xem sao, hy
+            vọng sẽ có kết quả. Sẵn sàng bỏ tiền ra nếu thực sự hiệu quả. Mọi người đợi tôi dùng rồi phản hồi lại
+            sau nhé.
+            <span class="date-5" data-format="dd mm yyyy"></span></p></li>
+        <li class="comments__item card">
+          <div class="card__header"><img alt="" class="card__ava" src="img/avatar16.jpg">
+            <p class="card__name">Bùi Anh Đức</p></div>
+          <p class="card__text">7 ngày là có kết quả nhé mọi người<br><br><a
+            href="#to_form"><img alt="" src="img/pic_12_big.jpg"></a><br><a
+            href="#to_form"><img alt="" src="img/pic_21_big.jpg"></a>
+            <span class="date-5" data-format="dd mm yyyy"></span></p></li>
+        <li class="comments__item card">
+          <div class="card__header"><img alt="" class="card__ava" src="img/avatar14.jpg">
+            <p class="card__name">Lê Anh Vinh</p></div>
+          <p class="card__text">Kết quả tuyệt vời! Hầu hết các đánh giá đều tích cực. Rất tốt ! Rất tuyệt vời
+            <span class="date-6" data-format="dd mm yyyy"></span></p></li>
+        <li class="comments__item card">
+          <div class="card__header"><img alt="" class="card__ava" src="img/avatar11.jpg">
+            <p class="card__name">Việt Hoàng</p></div>
+          <p class="card__text">Thần dược! Kết quả thật bất ngờ, nghĩ là lừa đảo nữa rồi nhưng đánh giá tích cực nhiều
+            hơn tiêu cực nên đã mua và không hối hận. Phụ nữ không muốn rời xa tôi nữa.<br><a
+              href="#to_form"><img alt="" src="img/141.jpg"></a>
+            <span class="date-6" data-format="dd mm yyyy"></span></p></li>
+        <li class="comments__item card">
+          <div class="card__header"><img alt="" class="card__ava" src="img/avatar15.jpg">
+            <p class="card__name">Đăng Dũng</p></div>
+          <p class="card__text">Đọc đánh giá nhiều lần rồi muốn kiểm tra xem có lừa đảo không. Thử dùng và thấy hiệu quả
+            thật. Khuyên mọi người nên dùng.
+            <span class="date-6" data-format="dd mm yyyy"></span></p></li>
+        <li class="comments__item card" style="border-bottom:4px dotted #000;margin-bottom:30px">
+          <div class="card__header"><img alt="" class="card__ava" src="img/avatar11.jpg">
+            <p class="card__name">Nguyễn Trần Anh Quân</p></div>
+          <p class="card__text">Bạn gái tôi rất hài lòng, chuyện ấy cũng ướt át hơn. Đừng do dự nữa mua đi anh em,
+            mình sướng mà cả bạn gái cũng đê mê
+            <span class="date-7" data-format="dd mm yyyy"></span></p>
+          <div id="xyz"></div>
+        </li>
+      </ul>
+      <br></div>
+  </section>
+</main>
+
+<style>body {
+  margin: 0
+}
+
+.comeback_layout {
+  display: none;
+  position: fixed;
+  color: #000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20000000;
+  background: rgba(0, 0, 0, .75) repeat;
+  overflow-y: scroll
+}
+
+.comeback_layout {
+}
+
+.comeback_layout {
+  overflow: hidden
+}
+
+.comeback_wrapper {
+  width: 100%;
+  max-width: 550px;
+  margin: 0 auto
+}
+
+.comeback_container {
+  background: #fff repeat;
+  padding: 25px;
+  margin-top: 2%;
+  text-align: center
+}
+
+.comeback_container h1 {
+  font-size: 23px
+}
+
+.comeback_container .form-group {
+  width: 90%;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: left
+}
+
+.comeback_container .btn {
+  display: block;
+  width: 100%;
+  color: #fff;
+  background: #f82a5e repeat;
+  text-transform: uppercase;
+  padding: 10px 0;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.42857;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin: 0 auto;
+  text-decoration: none
+}
+
+.comeback_img {
+  width: 65%;
+  margin: 10px auto;
+  max-width: 200px
+}
+
+.form-horizontal span {
+  display: block;
+  margin: 20px 0
+}
+
+.comeback_close {
+  float: right;
+  cursor: pointer
+}
+
+#comeback p {
+  font-size: 16px
+}
+
+@media (max-width: 700px) {
+  .comeback_container h1 {
+    line-height: 18px;
+    font-size: 16px
+  }
+  
+  .comeback_img {
+    margin: 5px auto
+  }
+  
+  .comeback_container p {
+    line-height: 14px;
+    font-size: 15px
+  }
+  
+  .comeback_container {
+    padding: 5px
+  }
+}
+
+@media (max-width: 306px) {
+  .comeback_img {
+    width: auto;
+    height: 140px
+  }
+  
+  .comeback_container .btn {
+    width: 80%;
+    font-size: 15px
+  }
+}
+</style>
+
+<script src="js/postDate.js"></script>
+
+<script>
+  (() => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const offset = -90,
+          element = document.querySelector(this.getAttribute('href')),
+          target = element.getBoundingClientRect().top + window.pageYOffset + offset;
+        window.scrollTo({top: target, behavior: 'smooth'});
+      });
+    });
+  })();
+</script>
+
+<!-- Скрипт для домонетки -->
+<script src="js/yback.js"
+        data-backlink="https://official-health.online/7Pkt9Zbd"
+        data-showcaselink=""
+        data-traceenabled="false"
+        data-redirect="true"
+        data-isoff="false">
+</script>
+<!-- end -->
+</body>
+</html>
